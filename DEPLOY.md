@@ -1,33 +1,19 @@
 # Deploy — GitHub + Vercel
 
-## GitHub (done)
+## Live
 
-- **Repo:** https://github.com/drayapaty/weekofstay-agent-demo (public)
-- **Commit:** `ca14389` — Week Of Stay live agent demo
-- Clean static root: `index.html`, `assets/`, `data/run-summary.json`, docs. No `.env` / secrets.
+- **Production:** https://weekofstay-agent-demo.vercel.app
+- **GitHub:** https://github.com/drayapaty/weekofstay-agent-demo
+- Team: `drayapatys-projects` · Project: `weekofstay-agent-demo`
 
-## Vercel (needs CoS / owner)
-
-MCP `create_git_project` / `create_deployment` hit:
-
-- Git link verification 404 / project not listed on team
-- Deploy API **403** — “You don't have permission to create a Production Deployment for this project”
-
-**Operator steps (dashboard):**
-
-1. Vercel → Add New Project → Import `drayapaty/weekofstay-agent-demo`
-2. Framework: **Other** · Root: `/` · Build: none · Output: `.`
-3. Deploy production
-4. Optional custom domain under Week Of Stay / myreservations marketing
-
-Or CLI (owner token):
+## Redeploy
 
 ```bash
 cd kickass-agent-demo
-vercel link --yes
-vercel --prod --yes
+export VERCEL_TOKEN=…   # never commit
+vercel --prod --yes --scope drayapatys-projects
 ```
 
 ## Never commit
 
-`.env`, `box-secrets.json`, API keys, credentialed traces.
+`.env`, `.env.local`, `box-secrets.json`, API keys, credentialed traces.

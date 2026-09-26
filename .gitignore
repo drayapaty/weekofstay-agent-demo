@@ -8,3 +8,5 @@
 .vercel
 node_modules/
 *.pem
+.env*
+.env.local
