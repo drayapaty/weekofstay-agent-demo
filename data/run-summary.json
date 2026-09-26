@@ -1,0 +1,162 @@
+{
+  "demo": "week-of-stay-event-agent-live-v1",
+  "brand": "Week Of Stay \u00b7 myreservations",
+  "ran_at_et": "2026-09-25T20:34:16.687046-04:00",
+  "goal_kind": "mr_denver_hotel_search",
+  "event": {
+    "name": "ASN Kidney Week",
+    "city": "Denver, CO",
+    "check_in": "2026-10-20",
+    "check_out": "2026-10-27",
+    "adults": 2,
+    "rooms": 1,
+    "nights": 7
+  },
+  "laya": {
+    "status": "LIVE",
+    "latency_ms": 3991.4,
+    "chosen_sort": "best_rated",
+    "chosen_neighborhood": "downtown_lodo",
+    "sort_probabilities": {
+      "best_location": 0.2795,
+      "best_value": 0.2755,
+      "best_rated": 0.4449
+    },
+    "neighborhood_probabilities": {
+      "downtown_lodo": 0.5637,
+      "rino": 0.2295,
+      "cherry_creek": 0.2069
+    },
+    "search_url_built": "https://www.myreservations.com/search?dest=Denver&placeId=ChIJzxcfI6qAa4cR1jaKJ_j0jhE&ci=2026-10-20&co=2026-10-27&adults=2&rooms=1&sort=rating",
+    "answer_confidence": {
+      "sort": 0.4449,
+      "neighborhood": 0.5637
+    }
+  },
+  "typer": {
+    "status": "LIVE",
+    "model": "cohere/north-mini-code:free",
+    "tier": "free",
+    "reasoning": "none",
+    "evidence": "live-v1 TYPE_TEXT typed \"Denver\" into Search stays"
+  },
+  "jev_runs": [
+    {
+      "id": "home-search-partial",
+      "badge": "LIVE",
+      "status": "blocked",
+      "elapsed_ms": 3447,
+      "start_url": "https://www.myreservations.com/",
+      "final_url": "https://www.myreservations.com/search?dest=Denver&placeId=ChIJzxcfI6qAa4cR1jaKJ_j0jhE&ci=2026-09-26&co=2026-09-27&adults=2&rooms=1",
+      "history": [
+        {
+          "step": 1,
+          "operation": "TYPE_TEXT",
+          "action": "Search stays",
+          "text": "Denver",
+          "text_helper": "cohere/north-mini-code:free",
+          "latency_ms": 186,
+          "elapsed_ms": 2066,
+          "probability": 1.0
+        },
+        {
+          "step": 2,
+          "operation": "CLICK",
+          "action": "Denver CO, USA",
+          "text": null,
+          "text_helper": null,
+          "latency_ms": 135,
+          "elapsed_ms": 2655,
+          "probability": 0.88
+        },
+        {
+          "step": 3,
+          "operation": "CLICK",
+          "action": "Search",
+          "text": null,
+          "text_helper": null,
+          "latency_ms": 302,
+          "elapsed_ms": 3260,
+          "probability": 0.54
+        }
+      ],
+      "note": "Typed Denver + clicked suggestion + Search; default dates (not ASN week) \u2014 blocked before date fill. Shows free typer live."
+    },
+    {
+      "id": "laya-sort-apply-done",
+      "badge": "LIVE",
+      "status": "done",
+      "elapsed_ms": 4349,
+      "start_url": "https://www.myreservations.com/search?dest=Denver&placeId=ChIJzxcfI6qAa4cR1jaKJ_j0jhE&ci=2026-10-20&co=2026-10-27&adults=2&rooms=1",
+      "final_url": "https://www.myreservations.com/search?dest=Denver&placeId=ChIJzxcfI6qAa4cR1jaKJ_j0jhE&ci=2026-10-20&co=2026-10-27&adults=2&rooms=1&sort=rating_descending",
+      "history": [
+        {
+          "step": 1,
+          "operation": "CLICK",
+          "action": "Sort Recommended",
+          "text": null,
+          "text_helper": null,
+          "latency_ms": 205,
+          "elapsed_ms": 1795,
+          "probability": 0.9
+        },
+        {
+          "step": 2,
+          "operation": "CLICK",
+          "action": "Guest Rating: High to Low",
+          "text": null,
+          "text_helper": null,
+          "latency_ms": 142,
+          "elapsed_ms": 2464,
+          "probability": 1.0
+        }
+      ],
+      "verification": {
+        "passed": true,
+        "checks": {
+          "on_search": true,
+          "dates_in_url": true,
+          "adults_2": true,
+          "hotels_visible": true,
+          "status_done": true
+        },
+        "url": "https://www.myreservations.com/search?dest=Denver&placeId=ChIJzxcfI6qAa4cR1jaKJ_j0jhE&ci=2026-10-20&co=2026-10-27&adults=2&rooms=1&sort=rating_descending",
+        "text_preview": "My Bookings\nSupport\nDates\nOct 20\n\u2013\nOct 27\n7\nnight\ns\nGuests\n2\nguest\ns\n\u00b7 1 room\nSearch\n286 hotels\nPrice\nStars\nGuest rating\nAmenities\nBrands\nCancellation\nSort\nGuest Rating: High to Low\nlist\nmap\nQuick\nFree cancellation\nRated 8+\nDenver\n\u00b7\nOct 20\n\u2013\nOct 27\n\u00b7\n286 hotels\nPrices shown include all taxes & fees.\nStaybridge Suites - Denver North - Thornton by IHG\nThornton, US\nExceptional\n9.6\n472 reviews \u00b7 7 nights\n3\n-star hotel\nOffsite parking discounted rates available\nFitness facilities (surcharge)\nNon-smoking rooms\nAir conditioning\nAll in best price\n$\n197\n/night\n$\n1381\n/trip\nincl. all taxes and fees\nView"
+      },
+      "note": "Applied Laya choice (best_rated \u2192 Guest Rating High to Low). DONE with hotels visible."
+    }
+  ],
+  "primary": {
+    "status": "done",
+    "elapsed_ms": 4349,
+    "final_url": "https://www.myreservations.com/search?dest=Denver&placeId=ChIJzxcfI6qAa4cR1jaKJ_j0jhE&ci=2026-10-20&co=2026-10-27&adults=2&rooms=1&sort=rating_descending",
+    "hotels_shown_sample": [
+      {
+        "name": "Staybridge Suites - Denver North - Thornton by IHG",
+        "rating": 9.6,
+        "label": "Exceptional",
+        "nightly": 197
+      },
+      {
+        "name": "Woolley's Classic Suites",
+        "rating": 9.6,
+        "label": "Exceptional",
+        "nightly": null
+      },
+      {
+        "name": "Home2 Suites By Hilton Denver Downtown Convention Center",
+        "rating": 8.4,
+        "label": "Excellent",
+        "nightly": null
+      }
+    ],
+    "results_count_label": "286 hotels"
+  },
+  "costs_stance": {
+    "openrouter_text": "free (:free model only)",
+    "typesafe_jev": "live (Typesafe Jev API)",
+    "laya": "local in-process SDK (no cloud LLM bill)",
+    "browser": "local Chrome CDP Fork-2"
+  },
+  "flights_note": "Google Flights ZRH\u2192LON earlier blocked after ticket-type click when observe action space collapsed to Scroll/Wait \u2014 pivoted to myreservations Event Stay which lands hard."
+}

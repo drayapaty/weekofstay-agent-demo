@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+**/box-secrets.json
+**/*secret*
+**/*credential*
+.DS_Store
+.vercel
+node_modules/
+*.pem
