@@ -5,7 +5,7 @@
 ## 🎯 What's Built
 
 ✅ **Polished UI/UX** — Modern Next.js + Tailwind, magazine-quality decision briefs  
-✅ **Live hotel search** — Same-origin `/api/hotels/search` powered by Feedz/LiteAPI  
+✅ **Live hotel search** — Same-origin `/api/hotels/search` powered by Feedz partner API  
 ✅ **SF-only city lock** — Soft-refuses other cities; keeps session on San Francisco  
 ✅ **Vercel-native** — Serverless API routes (no tunnel/box dependency)  
 ✅ **Real pricing** — Live availability, cancellation truth, nightly rates  
@@ -18,17 +18,7 @@
 npm install
 ```
 
-### 2. Set environment variable
-
-Create `.env.local`:
-
-```bash
-LITEAPI_API_KEY=your_key_here
-```
-
-> **Where to set in production:** Vercel Dashboard → Project Settings → Environment Variables → Add `LITEAPI_API_KEY`
-
-### 3. Run locally
+### 2. Run locally
 
 ```bash
 npm run dev
@@ -36,7 +26,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 
-### 4. Deploy to Vercel
+### 3. Deploy to Vercel
 
 ```bash
 vercel --prod
@@ -44,20 +34,12 @@ vercel --prod
 
 Or push to `main` branch for automatic deployment via Vercel Git integration.
 
-## 📋 Environment Variables
-
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `LITEAPI_API_KEY` | ✅ Yes | LiteAPI key for Feedz hotel search |
-
-**Never commit** `.env.local` or API keys to git.
-
 ## 🏗️ Architecture
 
 ```
 /app
   /api
-    /hotels/search   → POST/GET hotel search (Feedz API)
+    /hotels/search   → POST/GET hotel search (Feedz partner API)
     /health          → Health check endpoint
   page.tsx           → Main SF session UI
   layout.tsx         → App shell + fonts
@@ -128,9 +110,10 @@ City warnings trigger for non-SF cities (NYC, LA, etc.) — product constraint d
 ## 📦 Tech Stack
 
 - **Framework:** Next.js 15 (App Router)
-- **Styling:** Tailwind CSS v4 + custom design system
+- **Styling:** Tailwind CSS v3 + custom design system
 - **UI:** Lucide React icons, custom components
 - **Fonts:** Inter (sans), Instrument Serif (headings), JetBrains Mono (code)
+- **API:** Feedz partner API (myreservations.com integration)
 - **Deploy:** Vercel serverless
 
 ## 🎯 What's Next (Not in v1)

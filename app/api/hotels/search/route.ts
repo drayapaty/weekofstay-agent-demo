@@ -140,16 +140,6 @@ function extractHotel(h: any, landmarkLat?: number, landmarkLon?: number): Hotel
 }
 
 async function searchLive(params: HotelSearchParams) {
-  const apiKey = process.env.LITEAPI_API_KEY
-  if (!apiKey) {
-    return {
-      ok: false,
-      error: 'missing_api_key',
-      message: 'LITEAPI_API_KEY not configured',
-      hotels: [],
-    }
-  }
-
   const placeId = params.place_id || SF_PLACE_ID
   const checkIn = params.check_in || THANKSGIVING_2026
   const checkOut = params.check_out || new Date(new Date(checkIn).getTime() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]

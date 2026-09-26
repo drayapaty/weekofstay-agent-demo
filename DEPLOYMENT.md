@@ -4,7 +4,6 @@
 
 - Node.js 18+ installed
 - Git repository connected to Vercel
-- `LITEAPI_API_KEY` environment variable set in Vercel
 
 ## Vercel Deployment (Recommended)
 
@@ -42,22 +41,6 @@
    ```bash
    vercel --prod --yes --scope drayapatys-projects
    ```
-
-## Environment Variables Setup
-
-Before deploying, ensure `LITEAPI_API_KEY` is set in Vercel:
-
-```bash
-vercel env add LITEAPI_API_KEY production
-# Paste your key when prompted
-```
-
-Or via Vercel Dashboard:
-- Project Settings → Environment Variables
-- Add `LITEAPI_API_KEY`
-- Select all environments (Production, Preview, Development)
-
-See [ENV_SETUP.md](./ENV_SETUP.md) for detailed instructions.
 
 ## Build Configuration
 
@@ -145,19 +128,9 @@ Check:
 ### API returns 502
 
 Check:
-- `LITEAPI_API_KEY` is set in Vercel env
 - Feedz API is accessible from Vercel edge
 - No CORS issues (same-origin API)
-
-### Missing environment variable
-
-Error: `"error": "missing_api_key"`
-
-Fix:
-```bash
-vercel env add LITEAPI_API_KEY production
-vercel --prod  # redeploy
-```
+- Headers match myreservations.com client pattern
 
 ## Production URL
 
